@@ -2,3 +2,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+  /*decimos al navegador que el sitio web es compatible con los esquemas de colores claro y oscuro*/
+}
+
+body{
+  @apply bg-black;
+}
