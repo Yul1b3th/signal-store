@@ -1,11 +1,12 @@
 import { Component, inject } from '@angular/core';
 
 import { ProductStateService } from '../../data-access/product-state.service';
+import { ProductCardComponent } from '../../ui/product-card/product-card.component';
 
 @Component({
   selector: 'app-products-list',
   standalone: true,
-  imports: [],
+  imports: [ProductCardComponent],
   templateUrl: './products-list.component.html',
   styles: ``,
   providers: [ProductStateService]
