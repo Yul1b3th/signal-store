@@ -4,7 +4,6 @@ export const routes: Routes = [
   {
     path: 'products', loadChildren: () => import('./products/features/product-shell/product.route'),
   },
-  {
-    path: '', redirectTo: 'products', pathMatch: 'full',
-  }
+  { path: '',   redirectTo: 'products', pathMatch: 'full' },
+  { path: '**', loadComponent: () => import('./core/components/page-not-found/page-not-found.component') },
 ];
