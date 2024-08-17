@@ -3,7 +3,7 @@ import { signalSlice } from 'ngxtension/signal-slice';
 
 import { Product } from '../../shared/interfaces/product.interface';
 import { ProductsService } from './products.service';
-import { map, startWith, Subject, switchMap } from 'rxjs';
+import { catchError, map, of, startWith, Subject, switchMap } from 'rxjs';
 
 interface State {
   products: Product[];
@@ -25,7 +25,13 @@ export class ProductStateService {
   loadProducts$ = this.changePage$.pipe(
     startWith(1),
     switchMap(page => this.productService.getProducts(page)),
-    map(products => ({ products, status: 'success' as const }))
+    map(products => ({ products, status: 'success' as const })),
+    catchError(() => {
+      return of({
+        products: [],
+        status: 'error' as const,
+      });
+    }),
   );
 
   state = signalSlice({
