@@ -1,11 +1,12 @@
 import { Component, effect, inject, input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductDetailStateService } from '../../data-access/product-detail-state.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-products-detail',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './products-detail.component.html',
   styles: ``,
   providers: [ProductDetailStateService],
