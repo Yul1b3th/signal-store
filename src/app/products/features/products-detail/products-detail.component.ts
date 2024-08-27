@@ -9,13 +9,20 @@ import { ActivatedRoute } from '@angular/router';
   styles: ``
 })
 export default class ProductsDetailComponent {
-  private activeRoute = inject(ActivatedRoute)
+  // private activeRoute = inject(ActivatedRoute)
+
+  // constructor() {
+  //   this.activeRoute.params.subscribe(params => {
+  //     console.log(params);
+  //   });
+  // }
+
+  // Input Signal
+  yuli = input.required<string>();
 
   constructor() {
-    this.activeRoute.params.subscribe(params => {
-      console.log(params);
+    effect(() => {
+      console.log(this.yuli());
     });
   }
-
-
 }
