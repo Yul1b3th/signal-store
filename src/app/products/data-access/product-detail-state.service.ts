@@ -11,7 +11,7 @@ interface State {
 }
 
 @Injectable()
-export class ProductStateService {
+export class ProductDetailStateService {
   private productService = inject(ProductsService);
 
     private initialState: State = {
@@ -22,7 +22,7 @@ export class ProductStateService {
   state = signalSlice({
     initialState: this.initialState,
     actionSources: {
-        getById: (_state, $: Observable<number>) => $.pipe(
+        getById: (_state, $: Observable<string>) => $.pipe(
         switchMap((id) => this.productService.getProduct(id)),
         map(data => ({ product: data, status: 'success' as const })),
       )
