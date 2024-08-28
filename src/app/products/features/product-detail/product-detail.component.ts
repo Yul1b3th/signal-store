@@ -7,11 +7,11 @@ import { CommonModule } from '@angular/common';
   selector: 'app-products-detail',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './products-detail.component.html',
+  templateUrl: './product-detail.component.html',
   styles: ``,
   providers: [ProductDetailStateService],
 })
-export default class ProductsDetailComponent {
+export default class ProductDetailComponent {
   // private activeRoute = inject(ActivatedRoute)
 
   // constructor() {

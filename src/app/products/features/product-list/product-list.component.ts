@@ -9,11 +9,11 @@ import { ProductsSateService } from '../../data-access/products-state.service';
   selector: 'app-products-list',
   standalone: true,
   imports: [ProductCardComponent],
-  templateUrl: './products-list.component.html',
+  templateUrl: './product-list.component.html',
   styles: ``,
   providers: [ProductsSateService]
 })
-export default class ProductsListComponent {
+export default class ProductListComponent {
   productsState = inject(ProductsSateService);
   cartState = inject(CartStateService).state;
 

@@ -1,9 +1,12 @@
 import { Routes } from '@angular/router';
 
 export default [
-  { path: '', loadComponent: () => import('../products-list/products-list.component') },
   {
-    path: ':yuli',
-    loadComponent: () => import('../products-detail/products-detail.component'),
-  }
+    path: '',
+    loadComponent: () => import('../product-list/product-list.component'),
+  },
+  {
+    path: 'product/:yuli',
+    loadComponent: () => import('../product-detail/product-detail.component'),
+  },
 ] as Routes;
