@@ -1,5 +1,5 @@
 <div class="mx-auto max-w-screen-xl">
-  @switch (productState.state().status) {
+  @switch (productsState.state().status) {
     @case('loading'){
       <p>loading...</p>
     }
@@ -12,8 +12,8 @@
           página</button>
       </div>
       <div class="grid grid-cols-[repeat(4,300px)] gap-6">
-        @for (product of productState.state().products; track product) {
-          <app-product-card class="block" [product]="product" />
+        @for (product of productsState.state().products; track product) {
+          <app-product-card class="block" [product]="product" (addToCart)="addToCart($event)"/>
         }
       </div>
     }

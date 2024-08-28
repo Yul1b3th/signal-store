@@ -12,7 +12,7 @@ interface State {
 }
 
 @Injectable()
-export class ProductStateService {
+export class ProductsSateService {
     private productService = inject(ProductsService);
     private initialState: State = {
       products: [],

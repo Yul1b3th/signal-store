@@ -1,7 +1,9 @@
 import { Component, inject } from '@angular/core';
 
-import { ProductStateService } from '../../data-access/product-state.service';
 import { ProductCardComponent } from '../../ui/product-card/product-card.component';
+import { CartStateService } from '../../../shared/data-access/cart-state.service';
+import { Product } from '../../../shared/interfaces/product.interface';
+import { ProductsSateService } from '../../data-access/products-state.service';
 
 @Component({
   selector: 'app-products-list',
@@ -9,14 +11,23 @@ import { ProductCardComponent } from '../../ui/product-card/product-card.compone
   imports: [ProductCardComponent],
   templateUrl: './products-list.component.html',
   styles: ``,
-  providers: [ProductStateService]
+  providers: [ProductsSateService]
 })
 export default class ProductsListComponent {
-  productState = inject(ProductStateService);
+  productsState = inject(ProductsSateService);
+  cartState = inject(CartStateService).state;
 
   changePage() {
-    const page = this.productState.state.page() + 1;
-    this.productState.changePage$.next(page);
+    const page = this.productsState.state.page() + 1;
+    this.productsState.changePage$.next(page);
+  }
+
+  addToCart(product: Product) {
+    this.cartState.add({
+      product,
+      quantity: 1,
+    });
   }
 }
+
 
