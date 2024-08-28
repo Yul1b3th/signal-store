@@ -48,9 +48,7 @@ export class CartStateService {
     effects: (state) => ({
       load: () => {
         if (state().loaded) {
-          // this._storageService.saveProducts(state().products);
-          console.log(state.products());
-
+          this._storageService.saveProducts(state().products);
         }
       },
     }),
