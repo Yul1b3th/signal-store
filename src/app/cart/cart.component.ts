@@ -12,8 +12,8 @@ import { CartStateService } from '../shared/data-access/cart-state.service';
 export default class CartComponent {
   state = inject(CartStateService).state;
 
-  onRemoveItem(id: number) {
-    inject(CartStateService).removeItem(id);
+  onRemove(id: number) {
+    this.state.remove(id);
   }
 
 }
